@@ -1,0 +1,50 @@
+/*
+*
+* Widgets
+*
+*/
+
+// styles for WordPress widgets throughout the app, keep
+// all widget styles grouped and neat for quick and easy
+// scanability and selection
+
+body{
+
+	.wp-switch-editor{
+		background-color: rgba(0,0,0,.01);
+		border-color: rgba(0,0,0,.05);
+		color: $body-font-color;
+	}
+
+	.html-active .switch-html,
+	.tmce-active .switch-tmce{
+		background-color: lighten($body-bg,3%);
+		border-color: darken($body-bg,3%);
+		border-bottom-color: lighten($body-bg,3%);
+		color: $body-font-color;
+	}
+
+	.wp-editor-expand #wp-content-editor-tools{
+		border-bottom-color: darken($body-bg,3%);
+	}
+
+	div.mce-toolbar-grp{
+		background-color: lighten($body-bg,3%);
+		border-bottom-color: darken($body-bg,3%);
+	}
+
+	#post-status-info,
+	.quicktags-toolbar{
+		background-color: lighten($body-bg,3%);
+		border-color: darken($body-bg,3%);
+	}
+
+	#major-publishing-actions{
+		background-color: lighten($body-bg,3%);
+	}
+
+	.postbox{
+		border: none;
+	}
+
+}

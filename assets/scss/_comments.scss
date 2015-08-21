@@ -1,0 +1,111 @@
+/*
+*
+* Comments
+*
+*/
+
+// styles for WordPress comments
+//
+
+// full comment block
+#commentsdiv {
+	border: none;
+	@include box-shadow(none);
+
+
+	//
+	// Leave A Comment Block
+	////////////////////////////////////////
+
+	// main container
+	.wp-editor-container {
+		border: $field-border;
+	}
+
+	// text style toolbar
+	.quicktags-toolbar {
+		background: $gray-color;
+		border-bottom: $field-border;
+
+		// style buttons
+		input.button.button-small {
+			line-height: 1; // fix vertical alignment
+		}
+	}
+
+	// comment form
+	textarea {
+		font-family: $body-font-family;
+
+		&:focus {
+			background-color: $field-bg-color; // overwrite global style
+		}
+	}
+
+	//
+	// Comment Thread
+	////////////////////////////////////////
+
+	// table containing all comments
+	#the-comment-list {
+
+		// most text elements in comment block
+		td, th,
+		ol, ul,
+		p {
+			color: $body-font-color;
+		}
+	}
+
+	// post date & time
+	#submitted-on,
+	.submitted-on {
+		color: $body-font-color;
+	}
+
+	.row-actions {
+		color: $field-border-color;
+
+		// approve button
+		.spam .approve a,
+		.trash .approve a,
+		.unapproved .approve a,
+		.approve a {
+			color: $green-color;
+
+			&:hover {
+				color: darken($green-color, 10%);
+			}
+		}
+
+		.trash a,
+		.spam a {
+			color: $red-color;
+
+			&:hover {
+				color: darken($red-color, 10%);
+			}
+		}
+
+		.unapprove a {
+			color: $yellow-color;
+
+			&:hover {
+				color: darken($yellow-color, 10%);
+			}
+		}
+	}
+
+	.column-author img,
+	.column-comment .comment-author img,
+	.column-username img {
+		@include border-radius($global-rounded);
+	}
+
+	// unapproved comments, have bg color
+	#the-comment-list .unapproved td,
+	#the-comment-list .unapproved th {
+		background-color: $field-bg-color-focus;
+	}
+
+}

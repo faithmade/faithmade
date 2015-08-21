@@ -1,0 +1,51 @@
+/*
+*
+* Global
+*
+*/
+
+// global styles pertain to elements that appear on every page
+//
+
+
+html {
+	background-color: $body-bg;
+}
+
+@media screen and (max-width: 782px) {
+	#wpwrap {
+		background-color: $body-bg;
+	}
+}
+
+body {
+	color: $body-font-color;
+}
+
+.nav-tab-wrapper{
+	clear: both;
+}
+
+.nav-tab{
+	background-color: darken($body-bg,5%);
+	border-color: darken($body-bg,8%);
+
+	&:hover{
+		background-color: white;
+	}
+}
+
+h2.nav-tab-wrapper,
+h3.nav-tab-wrapper{
+	border-bottom-color: darken($body-bg,8%);
+}
+
+.nav-tab-active,
+.nav-tab-active:hover{
+	background-color: $body-bg;
+	border-bottom-color: $body-bg;
+}
+
+#wp-auth-check-wrap #wp-auth-check{
+	background-color: $sidebar-bg;
+}

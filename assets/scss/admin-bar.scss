@@ -1,0 +1,147 @@
+@import "compass/css3";
+@import 'vars.scss';
+
+$admin-bar-bg-color: #313940;
+$admin-bar-text-color: #fff;
+
+/*
+*
+* Admin Bar
+*
+*/
+
+// styles for the top admin navigation bar
+
+// admin bar
+#wpadminbar {
+	background-color: darken($admin-bar-bg-color,5%);
+}
+
+// admin bar items
+#wpadminbar .quicklinks .ab-empty-item,
+#wpadminbar .quicklinks a,
+#wpadminbar .shortlink-input {
+	color: $admin-bar-text-color;
+}
+// add more padding to admin bar items
+#wpadminbar .quicklinks > ul > li > a {
+	padding: 0 15px;
+}
+
+// +New Link and Icon
+#wpadminbar a.ab-item,
+#wpadminbar > #wp-toolbar span.ab-label,
+#wpadminbar > #wp-toolbar span.noticon {
+	color: $admin-bar-text-color;
+}
+// + icon
+#wpadminbar > #wp-toolbar > #wp-admin-bar-root-default .ab-icon {
+
+	&:before {
+		color: $admin-bar-text-color;
+	}
+}
+
+body #wpadminbar li#wp-admin-bar-pro-site a span {
+	display: block;
+	color: #fff;
+	font-weight: bold;
+	font-size: 11px;
+	margin: 0px 1px 0px 1px;
+	padding: 0 30px !important;
+	line-height: 25px !important;
+	border: none !important;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	background: $teal-color !important;
+	height: auto !important;
+
+	&:hover{
+		background: darken($teal-color,5%) !important;
+		border: none !important;
+	}
+}
+
+#wpadminbar .ab-top-menu > li.hover > .ab-item,
+#wpadminbar .ab-top-menu > li:hover > .ab-item,
+#wpadminbar .ab-top-menu > li > .ab-item:focus,
+#wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus {
+	background-color: $admin-bar-bg-color;
+}
+#wpadminbar > #wp-toolbar a:focus span.ab-label,
+#wpadminbar > #wp-toolbar li.hover span.ab-label,
+#wpadminbar > #wp-toolbar li:hover span.ab-label,
+#wpadminbar > #wp-toolbar > #wp-admin-bar-root-default li.hover .ab-icon:before,
+#wpadminbar > #wp-toolbar > #wp-admin-bar-root-default li:hover .ab-icon:before {
+	color: $admin-bar-text-color;
+}
+#wpadminbar .menupop .ab-sub-wrapper,
+#wpadminbar .shortlink-input,
+#wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
+#wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
+	background-color: $admin-bar-bg-color;
+}
+
+#wpadminbar .quicklinks .menupop ul li a:focus,
+#wpadminbar .quicklinks .menupop ul li a:focus strong,
+#wpadminbar .quicklinks .menupop ul li a:hover,
+#wpadminbar .quicklinks .menupop ul li a:hover strong,
+#wpadminbar .quicklinks .menupop.hover ul li a:focus,
+#wpadminbar .quicklinks .menupop.hover ul li a:hover,
+#wpadminbar li .ab-item:focus:before,
+#wpadminbar li a:focus .ab-icon:before,
+#wpadminbar li.hover .ab-icon:before,
+#wpadminbar li.hover .ab-item:before,
+#wpadminbar li:hover #adminbarsearch:before,
+#wpadminbar li:hover .ab-icon:before,
+#wpadminbar li:hover .ab-item:before,
+#wpadminbar.nojs .quicklinks .menupop:hover ul li a:focus,
+#wpadminbar.nojs .quicklinks .menupop:hover ul li a:hover,
+#wpadminbar #adminbarsearch:before,
+#wpadminbar .ab-icon:before,
+#wpadminbar .ab-item:before {
+	color: $admin-bar-text-color;
+}
+
+.menupop.hover > a,
+.menupop:hover > a {
+	color: $admin-bar-text-color !important;
+}
+
+/* Brand Logo */
+
+// kill stupid border
+#wpadminbar .quicklinks {
+	border-left: none;
+}
+
+// logo brand box, adding logo via background image
+#wp-admin-bar-site-title a {
+	background: url("assets/images/faithmade.png") center center;
+	background-size: 100% auto;
+	width: 160px;
+	text-indent: -9999px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	&:hover {
+		//background-color: transparent !important;
+	}
+}
+
+#wpadminbar .ab-top-menu>li.hover>.ab-item, #wpadminbar .ab-top-menu>li:hover>.ab-item, #wpadminbar .ab-top-menu>li>.ab-item:focus, #wpadminbar.nojq .quicklinks .ab-top-menu>li>.ab-item:focus{
+	color: $teal-color;
+}
+
+#wpadminbar .blavatar{display: none !important;}
+
+/* User */
+
+// user pic, in topbar and user dropdown
+#wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img,
+#wp-admin-bar-user-info .avatar {
+	border: none;
+	@include border-radius($global-rounded);
+}

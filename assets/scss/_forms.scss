@@ -1,0 +1,115 @@
+/*
+*
+* Forms
+*
+*/
+
+// modules and styles pertaining to form fields, textareas,
+// calendar widgets, etc across the global app
+
+
+// Input fields
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+select,
+textarea {
+	color: $body-font-color;
+	border: $field-border;
+	outline: 0;
+	@include box-shadow(none);
+	@include border-radius($global-radius);
+	//@include appearance(none); // firefox sucks with this activated
+	@include transition(all 0.3s linear);
+
+	&:focus {
+		background-color: $field-bg-color-focus;
+		outline: 0;
+		border-color: $teal-color;
+		@include box-shadow(none);
+	}
+}
+
+input[type="number"] {
+
+}
+
+// Checkbox
+input[type=checkbox] {
+	background-color: $field-bg-color;
+	border: $field-border;
+	@include border-radius($global-radius);
+	@include box-shadow(none);
+	//@include appearance(none); // firefox sucks with this activated
+
+	&:checked {
+		background-color: $teal-color;
+		outline: 0;
+		border-color: darken($teal-color, 10%);
+		@include box-shadow(none);
+
+		&:focus {
+			border-color: darken($teal-color, 10%);
+		}
+
+		// color the arrow
+		&:before {
+			color: #fff;
+		}
+	}
+
+	// element focus happens after uncheck
+	&:focus {
+		@include box-shadow(none);
+		border-color: $teal-color;
+	}
+}
+
+// Radio Buttons
+input[type="radio"] {
+	background-color: $field-bg-color;
+	border: $field-border;
+	@include border-radius($global-rounded);
+	@include box-shadow(none);
+
+	// color the dot
+	&:checked:before {
+		background-color: $teal-color;
+	}
+
+	// element focus happens after uncheck
+	&:focus {
+		@include box-shadow(none);
+		border-color: $teal-color;
+	}
+}
+
+// some Table styles
+table.widefat {
+	thead,
+	tfoot {
+
+		tr th {
+			color: $body-font-color;
+
+			a {
+				color: $body-font-color;
+			}
+		}
+	}
+}
+
+.wp-editor-tabs{
+	float: left;
+}
+
+.wp-editor-expand #wp-content-editor-tools{
+	border-bottom-color: rgba(0,0,0,.1);
+}
+
+#wp-content-editor-tools{
+	background-color: #ECEEF4;
+}

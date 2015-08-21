@@ -1,0 +1,26 @@
+/*
+*
+* Editor Style
+*
+*/
+
+// editor styles will show up in the TinyMCE text block
+// in the admin side. since this is an admin app we are
+// basically only using the editor-style related fields
+
+
+// need to import some necessary modules
+@import "compass/css3";
+@import "_vars.scss";
+@import "_type.scss";
+
+
+// Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301)
+::-moz-selection{background: rgba($red-color, .8); color: #fff; text-shadow: none;}
+::selection {background: rgba($red-color, .8); color: #fff; text-shadow: none;}
+
+/* TinyMCE */
+#tinymce {
+	font-family: $body-font-family;
+	color: $body-font-color;
+}

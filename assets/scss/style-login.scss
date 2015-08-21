@@ -1,0 +1,60 @@
+/*
+*
+*  Style Login
+*
+*/
+
+// need to import some necessary modules
+@import "compass/css3";
+@import "_vars.scss";
+@import "_type.scss";
+@import "_forms.scss";
+@import "_buttons.scss";
+
+html{
+	background-color: $sidebar-bg;
+}
+
+body.login {
+	background-color: $sidebar-bg;
+	color: $body-font-color;
+
+	h1 a{
+		background-image: url('../../themes/faithmade/assets/images/global/faithmade-outlined.svg');
+		background-size: 200px auto;
+		width: 200px;
+		height: 52px;
+		background-position: center center;
+	}
+
+	// main signin form container
+	form {
+		@include box-shadow(none);
+	}
+
+	// links at bottom of page
+	#backtoblog a,
+	#nav a {
+		color: $body-font-color;
+
+		&:hover {
+			color: $teal-color;
+		}
+	}
+	// we don't need this because it goes nowhere
+	#backtoblog {display:none;}
+
+	// form text labels, also applies to inputs because inputs are nested in label
+	label {
+		color: $label-color;
+		text-shadow: none;
+	}
+
+	// style forms, some overwrites
+	form .input,
+	input[type="text"] {
+		font-weight: normal;
+		font-size: 16px;
+		padding: $field-padding;
+	}
+}

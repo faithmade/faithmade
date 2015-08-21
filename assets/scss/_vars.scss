@@ -1,0 +1,64 @@
+/*
+*
+* Variables
+*
+*/
+
+// $Color
+// -------------------------------------//
+
+
+$green-color: #76d456; //complete
+$yellow-color: #fed100; //pending
+$teal-color: #38b093; //in-progress
+$red-color: #f65b3c; //declined
+$gray-color: #f7f7fa; //draft
+
+$body-bg: #eceef4;
+
+
+// $BaseType
+// -------------------------------------//
+
+
+// Body font styles
+
+$body-font-family: "Open Sans", Helvetica, Arial, sans-serif;
+$body-font-color: #6e768f;
+$body-font-weight: normal;
+
+// Header font styles
+
+$header-font-family: "Open Sans", Helvetica, Arial, sans-serif;
+$header-font-color: #6e768f;
+$alt-header-font-color: #a5abc5;
+$header-font-weight: normal;
+
+$letter-spacing: .05em;
+
+// $Globals
+// -------------------------------------//
+
+$global-radius: 4px;
+$global-rounded: 999px;
+
+// $Forms
+// -------------------------------------//
+
+$field-bg-color: #fff;
+$field-bg-color-focus: #f0fbfa;
+$field-padding: 12px;
+$field-border-color: #d7d9e0;
+$field-border: 1px solid $field-border-color;
+
+$label-color: $alt-header-font-color;
+
+// $AdminTopBar
+// -------------------------------------//
+
+$admin-bar-height: 80px;
+
+// $AdminSideBar
+// -------------------------------------//
+
+$sidebar-bg: #313940;

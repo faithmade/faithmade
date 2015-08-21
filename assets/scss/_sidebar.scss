@@ -1,0 +1,106 @@
+/*
+*
+* Sidebar
+*
+*/
+
+// modules and styles pertaining to the persistent navigation
+// sidebar on each page
+
+
+// sidebar background
+#adminmenu,
+#adminmenu .wp-submenu,
+#adminmenuback,
+#adminmenuwrap {
+	background-color: $sidebar-bg;
+}
+
+// active section expanded options background
+#adminmenu .wp-has-current-submenu .wp-submenu,
+#adminmenu .wp-has-current-submenu .wp-submenu.sub-open,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu,
+.no-js li.wp-has-current-submenu:hover .wp-submenu {
+	background-color: #292f35;
+}
+
+#adminmenu li.menu-top {
+	border-bottom: 1px solid #292f35;
+}
+
+@media screen and (min-width: 782px) {
+	#adminmenu div.wp-menu-name,
+	div.wp-menu-image:before {
+		padding: 14px 0;
+	}
+}
+
+// admin link separators
+#adminmenu li.wp-menu-separator {
+	background-color: #292f35;
+	margin: 0;
+	display: none;
+}
+
+ul#adminmenu a.wp-has-current-submenu:after,
+ul#adminmenu > li.current > a.current:after {
+	border-color: rgba(0, 0, 0, 0) $body-bg rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)
+}
+
+// admin link hovers, text color
+body #adminmenu .wp-submenu a:focus,
+body #adminmenu .wp-submenu a:hover,
+body #adminmenu a:hover,
+body #adminmenu a:hover  div.wp-menu-image:before,
+body #adminmenu li.menu-top>a:focus,
+#adminmenu li a:focus div.wp-menu-image:before,
+#adminmenu li.opensub div.wp-menu-image:before,
+#adminmenu li:hover div.wp-menu-image:before {
+	color: $teal-color;
+}
+#collapse-menu:hover,
+#collapse-menu:hover #collapse-button div:after,
+#adminmenu li:hover div.wp-menu-image:before {
+	color: $teal-color;
+}
+// admin link hovers,  link bg color
+#adminmenu li.menu-top:hover,
+#adminmenu li.opensub > a.menu-top,
+#adminmenu li > a.menu-top:focus {
+	background-color: darken($sidebar-bg, 10%);
+	color: $teal-color;
+}
+
+// admin link active
+#adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head,
+#adminmenu .wp-menu-arrow,
+#adminmenu .wp-menu-arrow div,
+#adminmenu li.current a.menu-top,
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+.folded #adminmenu li.current.menu-top,
+.folded #adminmenu li.wp-has-current-submenu {
+	background-color: $teal-color;
+}
+
+// admin link sub-menu triangle
+#adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
+	border-right-color: $sidebar-bg;
+}
+
+// Collapse Tab
+#collapse-menu,
+#collapse-button div:after {
+	color: $body-font-color;
+}
+
+// Notification Counter (1)
+#adminmenu .awaiting-mod,
+#adminmenu .update-plugins,
+#sidemenu li a span.update-plugins {
+	background-color: $red-color;
+}
+
+
+
+

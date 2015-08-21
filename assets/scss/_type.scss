@@ -1,0 +1,31 @@
+/*
+*
+* Typography
+*
+*/
+
+// styles pertaining to the global typography
+// 
+
+// Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301)
+::-moz-selection{background: rgba($red-color, .8); color: #fff; text-shadow: none;}
+::selection {background: rgba($red-color, .8); color: #fff; text-shadow: none;} 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $body-font-color;
+}
+
+a {
+	color: $teal-color;
+	@include transition(all 0.2s linear);
+
+	&:hover,
+	&:focus {
+		color: darken($teal-color, 10%);
+	}
+}

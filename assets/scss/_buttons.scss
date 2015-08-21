@@ -1,0 +1,61 @@
+/*
+*
+* Buttons
+*
+*/
+
+// styles for all buttons, button styles should typically
+// be @included, or even better, @extended to reduce
+// code bloat and promote consistency.
+
+
+
+.button {
+	background-color: $gray-color;
+	border-color: darken($gray-color, 10%);
+	color: $body-font-color;
+	@include box-shadow(none);
+
+	span {
+		color: $body-font-color;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: lighten($gray-color, 5%);
+		border-color: darken($gray-color, 15%);
+		color: $body-font-color;
+		@include box-shadow(none);
+	}
+}
+
+.wp-core-ui .button-primary,
+.wrap .add-new-h2 {
+	background-color: $teal-color;
+	border-color: darken($teal-color,5%);
+	color: white;
+
+	&:hover,
+	&:active,
+	&:focus{
+		color: white;
+		background-color: darken($teal-color,2%);
+		border-color: darken($teal-color,7%);
+	}
+}
+
+.wp-core-ui .button,
+.wrap .add-new-h2,
+.wrap .add-new-h2:active{
+	@extend .button-secondary;
+}
+
+// color some text and icons inside of buttons
+.gray-button span,
+.wp-core-ui .button span,
+.wp-core-ui .button-secondary span,
+.gray-button span:before,
+.wp-core-ui .button span:before,
+.wp-core-ui .button-secondary span:before {
+	color: $body-font-color;
+}

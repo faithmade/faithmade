@@ -1,0 +1,56 @@
+.admin-bar .fl-page-nav-right.fl-page-header-fixed, .admin-bar .fl-page-header-fixed{
+	top: 0 !important;
+}
+
+.widecolumn {
+	max-width: 44em;
+	margin: 0 auto;
+	padding: 4em 0;
+}
+
+.mu_alert{
+	margin-bottom: 20px;
+	background-color: #e1f2f4;
+	padding: 1em;
+}
+
+.error{
+	background-color: red;
+	color: white;
+	padding: 1em;
+	margin-bottom: 1em;
+}
+
+#blogname,
+#blog_title{
+	width: auto;
+	display: inline;
+}
+
+#setupform{
+	input,
+	label,
+	#privacy{
+		float: left;
+		clear: none;
+		display: inline;
+		margin-bottom: 4px;
+	}
+
+	#privacy{
+		clear: both;
+	}
+
+	br{
+		clear: left;
+	}
+
+	.suffix_address{
+		float: left;
+		clear: left;
+	}
+
+	#domain{
+		float: right;
+	}
+}

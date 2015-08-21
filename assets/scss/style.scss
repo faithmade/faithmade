@@ -1,0 +1,22 @@
+/*
+Theme Name: Faithmade Website Co.
+Author: Chris Wallace of <a href="http://liftux.com">Lift</a>
+Author URI: http://liftux.com/
+Description: A theme for managing projects with WordPress.
+Version: 0.1
+Text Domain: faithmade
+*/
+
+@import "compass/css3";
+@import "_vars.scss";
+
+@import "_global.scss";
+@import "_type.scss";
+@import "_forms.scss";
+@import "_buttons.scss";
+
+@import "admin-bar.scss";
+@import "_sidebar.scss";
+
+@import "_widgets.scss";
+@import "_comments.scss";
