@@ -5,7 +5,6 @@
 */
 
 // need to import some necessary modules
-@import "compass/css3";
 @import "_vars.scss";
 @import "_type.scss";
 @import "_forms.scss";
@@ -29,7 +28,7 @@ body.login {
 
 	// main signin form container
 	form {
-		@include box-shadow(none);
+		box-shadow: none;
 	}
 
 	// links at bottom of page

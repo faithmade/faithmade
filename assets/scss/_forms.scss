@@ -20,16 +20,19 @@ textarea {
 	color: $body-font-color;
 	border: $field-border;
 	outline: 0;
-	@include box-shadow(none);
-	@include border-radius($global-radius);
-	//@include appearance(none); // firefox sucks with this activated
-	@include transition(all 0.3s linear);
+	box-shadow: none;
+	-webkit-border-radius: $global-radius;
+	-moz-border-radius: $global-radius;
+	border-radius: $global-radius;
+	-webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 
 	&:focus {
 		background-color: $field-bg-color-focus;
 		outline: 0;
 		border-color: $teal-color;
-		@include box-shadow(none);
+		box-shadow: none;
 	}
 }
 
@@ -41,15 +44,17 @@ input[type="number"] {
 input[type=checkbox] {
 	background-color: $field-bg-color;
 	border: $field-border;
-	@include border-radius($global-radius);
-	@include box-shadow(none);
+	-webkit-border-radius: $global-radius;
+	-moz-border-radius: $global-radius;
+	border-radius: $global-radius;
+	box-shadow: none;
 	//@include appearance(none); // firefox sucks with this activated
 
 	&:checked {
 		background-color: $teal-color;
 		outline: 0;
 		border-color: darken($teal-color, 10%);
-		@include box-shadow(none);
+		box-shadow: none;
 
 		&:focus {
 			border-color: darken($teal-color, 10%);
@@ -63,7 +68,7 @@ input[type=checkbox] {
 
 	// element focus happens after uncheck
 	&:focus {
-		@include box-shadow(none);
+		box-shadow: none;
 		border-color: $teal-color;
 	}
 }
@@ -72,8 +77,10 @@ input[type=checkbox] {
 input[type="radio"] {
 	background-color: $field-bg-color;
 	border: $field-border;
-	@include border-radius($global-rounded);
-	@include box-shadow(none);
+	-webkit-border-radius: $global-rounded;
+	-moz-border-radius: $global-rounded;
+	border-radius: $global-rounded;
+	box-shadow: none;
 
 	// color the dot
 	&:checked:before {
@@ -82,7 +89,7 @@ input[type="radio"] {
 
 	// element focus happens after uncheck
 	&:focus {
-		@include box-shadow(none);
+		box-shadow: none;
 		border-color: $teal-color;
 	}
 }

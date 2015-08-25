@@ -5,11 +5,11 @@
 */
 
 // styles pertaining to the global typography
-// 
+//
 
 // Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301)
 ::-moz-selection{background: rgba($red-color, .8); color: #fff; text-shadow: none;}
-::selection {background: rgba($red-color, .8); color: #fff; text-shadow: none;} 
+::selection {background: rgba($red-color, .8); color: #fff; text-shadow: none;}
 
 h1,
 h2,
@@ -22,7 +22,9 @@ h6 {
 
 a {
 	color: $teal-color;
-	@include transition(all 0.2s linear);
+	-webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 
 	&:hover,
 	&:focus {

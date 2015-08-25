@@ -10,7 +10,7 @@
 // full comment block
 #commentsdiv {
 	border: none;
-	@include box-shadow(none);
+	box-shadow: none;
 
 
 	//
@@ -99,7 +99,9 @@
 	.column-author img,
 	.column-comment .comment-author img,
 	.column-username img {
-		@include border-radius($global-rounded);
+		-webkit-border-radius: $global-rounded;
+		-moz-border-radius: $global-rounded;
+		border-radius: $global-rounded;
 	}
 
 	// unapproved comments, have bg color

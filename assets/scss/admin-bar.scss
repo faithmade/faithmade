@@ -1,4 +1,3 @@
-@import "compass/css3";
 @import 'vars.scss';
 
 $admin-bar-bg-color: #313940;
@@ -143,5 +142,7 @@ body #wpadminbar li#wp-admin-bar-pro-site a span {
 #wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img,
 #wp-admin-bar-user-info .avatar {
 	border: none;
-	@include border-radius($global-rounded);
+	border-radius: $global-rounded;
+	-moz-border-radius: $global-rounded;
+	-webkit-border-radius: $global-rounded;
 }
