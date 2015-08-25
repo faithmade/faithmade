@@ -37,10 +37,11 @@
 
 	&:hover,
 	&:active,
-	&:focus{
-		color: white;
-		background-color: darken($teal-color,2%);
-		border-color: darken($teal-color,7%);
+	&:focus,
+	&:disabled{
+		color: white!important;
+		background-color: darken($teal-color,2%)!important;
+		border-color: darken($teal-color,7%)!important;
 	}
 }
 
