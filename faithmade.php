@@ -121,17 +121,13 @@ function faithmade_replace_wordpress_permalink( $translated_text, $text, $domain
 add_filter( 'gettext', 'faithmade_replace_wordpress_permalink', 10, 3 );
 
 function faithmade_remove_gf_menu_links() {
-    // remove_submenu_page( 'gf_edit_forms', 'gf_edit_forms' );
-    // remove_submenu_page( 'gf_edit_forms', 'gf_new_form' );
-    // remove_submenu_page( 'gf_edit_forms', 'gf_new_formf_help' );
-    // remove_submenu_page( 'gf_edit_forms', 'gf_entries' );
-    // remove_submenu_page( 'gf_edit_forms', 'gf_settings' );
-    // remove_submenu_page( 'gf_edit_forms', 'gf_export' );
-    remove_submenu_page( 'gf_entries', 'gf_update' );
-    remove_submenu_page( 'gf_entries', 'gf_addons' );
-    remove_submenu_page( 'gf_entries', 'gf_help' );
+    remove_submenu_page( 'gf_edit_forms', 'gf_settings' );
+    remove_submenu_page( 'gf_edit_forms', 'gf_update' );
+    remove_submenu_page( 'gf_edit_forms', 'gf_addons' );
+    remove_submenu_page( 'gf_edit_forms', 'gf_help' );
 }
-add_action( 'admin_menu', 'faithmade_remove_gf_menu_links', 9999 );
+
+add_action( 'admin_menu', 'faithmade_remove_gf_menu_links', 99999 );
 
 /**
  * Remove admin bar links.
