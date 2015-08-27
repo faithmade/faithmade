@@ -149,3 +149,19 @@ function faithmade_remove_admin_bar_links() {
     //$wp_admin_bar->remove_menu('my-account');       // Remove the user details tab
 }
 add_action( 'wp_before_admin_bar_render', 'faithmade_remove_admin_bar_links' );
+
+
+/**
+ * Redirect to blog
+ * http://premium.wpmudev.org/forums/topic/you-attempted-to-access-the-main-site-dashboard-but-you-do-not-currently-have-privileges?utm_expid=3606929-52.ZpfeUjXqSWOCaoohIqoFQQ.0&utm_referrer=https%3A%2F%2Fwww.google.com%2F#post-693847
+ */
+add_filter('login_redirect', 'custom_redirect_filter', 0, 3);
+
+function custom_redirect_filter($redirect_to, $request, $user) {
+    $user_blogs = get_blogs_of_user($user->ID);
+    foreach ($user_blogs as $user_blog) {
+        $user_blog->path;
+        return site_url($user_blog->path);
+    }
+    return site_url();
+}
