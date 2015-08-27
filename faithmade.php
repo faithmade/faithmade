@@ -120,6 +120,37 @@ function faithmade_replace_wordpress_permalink( $translated_text, $text, $domain
 
 add_filter( 'gettext', 'faithmade_replace_wordpress_permalink', 10, 3 );
 
+function faithmade_replace_gf_text( $translated_text, $text, $domain ){
+
+    switch ( $translated_text ) {
+        case 'Select the forms you would like to export. When you click the download button below, Gravity Forms will create a JSON file for you to save to your computer. Once you\'ve saved the download file, you can use the Import tool to import the forms.';
+            $translated_text = __( 'Select the forms you would like to export. When you click the download button below, we will create a JSON file for you to save to your computer. Once you\'ve saved the download file, you can use the Import tool to import the forms.' );
+
+        break;
+    }
+
+    return $translated_text;
+
+}
+
+add_filter( 'gettext', 'faithmade_replace_gf_text', 10, 3 );
+
+function faithmade_replace_gf_text_again( $translated_text, $text, $domain ){
+
+    switch ( $translated_text ) {
+        case 'Select a form below to export entries. Once you have selected a form you may select the fields you would like to export and then define optional filters for field values and the date range. When you click the download button below, Gravity Forms will create a CSV file for you to save to your computer.';
+            $translated_text = __( 'Select a form below to export entries. Once you have selected a form you may select the fields you would like to export and then define optional filters for field values and the date range. When you click the download button below, we will create a CSV file for you to save to your computer.' );
+
+        break;
+    }
+
+    return $translated_text;
+
+}
+
+add_filter( 'gettext', 'faithmade_replace_gf_text_again', 10, 3 );
+
+
 function faithmade_remove_gf_menu_links() {
     remove_submenu_page( 'gf_edit_forms', 'gf_settings' );
     remove_submenu_page( 'gf_edit_forms', 'gf_update' );
