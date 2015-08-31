@@ -26,6 +26,10 @@ body {
 	clear: both;
 }
 
+.media-frame.mode-grid .attachments-browser .attachments{
+	clear: both;
+}
+
 .nav-tab{
 	background-color: darken($body-bg,5%);
 	border-color: darken($body-bg,8%);
