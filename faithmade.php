@@ -152,7 +152,7 @@ add_filter( 'gettext', 'faithmade_replace_gf_text_again', 10, 3 );
 
 
 function faithmade_remove_gf_menu_links() {
-    remove_submenu_page( 'gf_edit_forms', 'gf_settings' );
+    //remove_submenu_page( 'gf_edit_forms', 'gf_settings' );
     remove_submenu_page( 'gf_edit_forms', 'gf_update' );
     remove_submenu_page( 'gf_edit_forms', 'gf_addons' );
     remove_submenu_page( 'gf_edit_forms', 'gf_help' );
