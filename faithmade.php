@@ -165,7 +165,7 @@ add_action( 'admin_menu', 'faithmade_remove_gf_menu_links', 99999 );
  */
 function faithmade_remove_admin_bar_links() {
     global $wp_admin_bar;
-    $wp_admin_bar->remove_menu('wp-logo');          // Remove the WordPress logo
+    //$wp_admin_bar->remove_menu('wp-logo');          // Remove the WordPress logo
     $wp_admin_bar->remove_menu('about');            // Remove the about WordPress link
     $wp_admin_bar->remove_menu('wporg');            // Remove the WordPress.org link
     $wp_admin_bar->remove_menu('documentation');    // Remove the WordPress documentation link
@@ -181,6 +181,22 @@ function faithmade_remove_admin_bar_links() {
 }
 add_action( 'wp_before_admin_bar_render', 'faithmade_remove_admin_bar_links' );
 
+function faithmade_admin_bar_logo_replace(){
+    echo '<style type="text/css">
+    #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before{
+    content: "";
+    background-image: url("' . plugins_url() . '/faithmade-plugin/assets/images/faithmade-lion.svg");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+</style>';
+
+}
+
+add_action( 'wp_head', 'faithmade_admin_bar_logo_replace' );
+add_action( 'admin_head', 'faithmade_admin_bar_logo_replace' );
 
 /**
  * Redirect to blog
@@ -203,3 +219,4 @@ function custom_redirect_filter($redirect_to, $request, $user) {
 
     return site_url();
 }
+
