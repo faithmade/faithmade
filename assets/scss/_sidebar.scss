@@ -25,14 +25,23 @@
 	background-color: #292f35;
 }
 
+#adminmenu .wp-submenu-head, #adminmenu a.menu-top{
+	font-size: 13px;
+}
+
 #adminmenu li.menu-top {
 	border-bottom: 1px solid #292f35;
 }
 
 @media screen and (min-width: 782px) {
 	#adminmenu div.wp-menu-name,
-	div.wp-menu-image:before {
+	div.wp-menu-image:before,
+	#adminmenu .wp-menu-image img{
 		padding: 14px 0;
+	}
+
+	#adminmenu .wp-menu-image.svg{
+		padding-top: 12px;
 	}
 }
 
