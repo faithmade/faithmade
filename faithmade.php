@@ -160,11 +160,31 @@ function faithmade_remove_gf_menu_links() {
 
 add_action( 'admin_menu', 'faithmade_remove_gf_menu_links', 99999 );
 
+function faithmade_admin_bar_logo( $wp_admin_bar ) {
+    $args = array(
+            'id' => 'faithmade-logo',
+            'title' => '<span class="ab-icon"></span>',
+            'href' => network_home_url(),
+            'meta' => array(
+                'title' => __('Faithmade Home'),
+            ),
+        );
+
+    $wp_admin_bar->add_node( $args );
+}
+
+add_action( 'admin_bar_menu', 'faithmade_admin_bar_logo', 1 );
+
+
 /**
  * Remove admin bar links.
  */
 function faithmade_remove_admin_bar_links() {
     global $wp_admin_bar;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 642b83f... Add new menu icon with link
     $wp_admin_bar->remove_menu('wp-logo');          // Remove the WordPress logo
     $wp_admin_bar->remove_menu('about');            // Remove the about WordPress link
     $wp_admin_bar->remove_menu('wporg');            // Remove the WordPress.org link
@@ -181,6 +201,30 @@ function faithmade_remove_admin_bar_links() {
 }
 add_action( 'wp_before_admin_bar_render', 'faithmade_remove_admin_bar_links' );
 
+<<<<<<< HEAD
+=======
+function faithmade_admin_bar_logo_replace(){
+    echo '<style type="text/css">
+    #wpadminbar #wp-admin-bar-faithmade-logo > .ab-item{
+        padding-left: 10px;
+        padding-right: 6px;
+    }
+
+    #wpadminbar #wp-admin-bar-faithmade-logo > .ab-item .ab-icon:after{
+    content: "";
+    background-image: url("' . plugins_url() . '/faithmade-plugin/assets/images/faithmade-lion.svg");
+    background-size: contain;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+}
+</style>';
+
+}
+
+add_action( 'wp_head', 'faithmade_admin_bar_logo_replace' );
+add_action( 'admin_head', 'faithmade_admin_bar_logo_replace' );
+>>>>>>> 642b83f... Add new menu icon with link
 
 /**
  * Redirect to blog
