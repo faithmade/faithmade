@@ -20,6 +20,8 @@ function faithmade_custom_css() {
 function faithmade_remove_admin_items() {
 	if( ! is_super_admin() ){
 		remove_menu_page( 'plugins.php' );
+	}
+	if( ! current_user_can( 'switch_themes') ) {
 		remove_menu_page( 'tools.php' );
 	}
 }
