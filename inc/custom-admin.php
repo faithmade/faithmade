@@ -118,3 +118,29 @@ function faithmade_from_name(){
 	return 'Faithmade';
 }
 add_filter('wp_mail_from_name','mail_from_name');
+
+/**
+ * Removes CoSchedule Redirect on Activation on Site Creation
+ * 
+ * @internal CoSchedule has a singleton core class and their is not access to the
+ * instance outside of the class, so we have to hook redirect.
+ */
+function faithmade_maybe_suppress_coschedule_redirect( $location, $status ) {
+	// Bail if this is any redirect except coschedule's
+	if( ! strpos( $location, 'tm_coschedule_calendar' ) ) {
+		return $location;
+	}
+
+	// If we are coming from wp-admin/plugins.php we can assume this was user initiated,
+	// in which case, we want them to redirect to the setup page.
+	if( false !== strpos( parse_url( $_SERVER['HTTP_REFERER'], PHP_URL_PATH), 'wp-admin/plugins.php' ) ) {
+		return $location;
+	}
+
+	// This should be our unique use case where users are coming in to a fresh dashboard without having
+	// expired the coschedule activation redirect function.  In this case, override it and send them home.
+	return admin_url();
+}
+if( is_admin() ) {
+	add_action( 'wp_redirect', 'faithmade_maybe_suppress_coschedule_redirect', 10, 2 );
+}
