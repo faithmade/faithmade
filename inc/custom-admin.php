@@ -162,7 +162,7 @@ add_action( 'load_textdomain', 'faithmade_load_gf_lang_compat_texdomain', 10, 2 
 /**
  * Allows access to plugins page on admin to super admins only
  */
-function faithmade_maybe_redirect_plugin_page( $location, $status ) {
+function faithmade_maybe_redirect_plugin_page( $location, status ) {
 	// Exit early if user is a super admin or this doesn't have to with plugins.php
 	if( is_super_admin() || ! strpos( $location, 'plugins.php' ) ) {
 		return $location;
