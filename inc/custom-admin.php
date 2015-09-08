@@ -146,3 +146,32 @@ function faithmade_maybe_suppress_coschedule_redirect( $location, $status ) {
 if( is_admin() ) {
 	add_action( 'wp_redirect', 'faithmade_maybe_suppress_coschedule_redirect', 10, 2 );
 }
+
+/**
+ * Loads a language compatibility translation file overtop of the default gravity forms language file if the 
+ * locale is en_US.  The loaded translation file replaces instances of WordPress with Faithmade.
+ *
+ */
+function faithmade_load_gf_lang_compat_texdomain( $domain, $mofile ) {
+	if( 'gravityforms' === $domain && plugin_dir_path( $mofile ) === WP_LANG_DIR . '/gravityforms/' ) {
+		load_textdomain( 'gravityforms', dirname(FAITHMADE_PLUGIN_URL) . '/assets/lang-compat/gravityforms-' . get_locale() . '.mo' );
+	}
+}
+add_action( 'load_textdomain', 'faithmade_load_gf_lang_compat_texdomain', 10, 2 );
+
+/**
+ * Allows access to plugins page on admin to super admins only
+ */
+function faithmade_maybe_redirect_plugin_page( $location, status ) {
+	// Exit early if user is a super admin or this doesn't have to with plugins.php
+	if( is_super_admin() || ! strpos( $location, 'plugins.php' ) ) {
+		return $location;
+	}
+	
+	if( false !== strpos( $location, 'plugins.php') ) {
+		return network_home_url( '/premium/?bid=100' );
+	}
+}
+if( is_admin() ) {
+	add_action('wp_redirect', 'faithmade_maybe_redirect_plugin_page' );
+}
