@@ -7,7 +7,6 @@
  * Author URI: http://liftux.com
  * Text Domain: faithmade
  */
-
 define( 'FAITHMADE_PLUGIN_URL', __FILE__ );
 
 /**
