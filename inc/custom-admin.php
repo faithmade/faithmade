@@ -163,3 +163,50 @@ function faithmade_maybe_redirect_plugin_page( $location, $status = 200 ) {
 if( is_admin() ) {
 	add_action('wp_redirect', 'faithmade_maybe_redirect_plugin_page' );
 }
+
+/**
+ * Changes the default admin color scheme to use the Faithmade Brand Color
+ *
+ * Currently affects Gravity Forms and Yoast
+ */
+function faithmade_set_admin_color_scheme() {
+	global $_wp_admin_css_colors;
+	$fresh = &$_wp_admin_css_colors["fresh"];
+	$icon_colors = &$fresh->icon_colors;
+	$icon_colors["focus"] = '#38b093';
+}
+add_action( 'admin_init', 'faithmade_set_admin_color_scheme' );
+
+/**
+ * Overrides Admin Icon for Coschedule by setting our own image for the default, hover and focus.
+ * @return [type] [description]
+ */
+function faithmade_override_coschedule_admin_icon() {
+	ob_start();
+	?>
+	<style>
+		#toplevel_page_tm_coschedule_calendar div.wp-menu-image img {
+			display: none;
+		}
+		#toplevel_page_tm_coschedule_calendar div.wp-menu-image:before {
+			content: '';
+			background-image: url(%1$s);
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			text-align: center;
+		}
+		#toplevel_page_tm_coschedule_calendar:hover div.wp-menu-image:before {
+			background-image: url(%2$s);
+		}
+		#toplevel_page_tm_coschedule_calendar.current div.wp-menu-image:before {
+			background-image: url(%3$s) !important;
+		}
+	</style>
+	<?php
+	echo sprintf( ob_get_clean(), 
+		faithmade_asset_url( '/assets/images/coschedule-gray.png' ), 
+		faithmade_asset_url( '/assets/images/coschedule-fm.png' ),
+		faithmade_asset_url( '/assets/images/coschedule-white.png' )
+		);
+}
+add_action( 'admin_head', 'faithmade_override_coschedule_admin_icon') ;
