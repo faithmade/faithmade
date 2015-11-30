@@ -111,7 +111,7 @@ add_filter('screen_options_show_screen','faithmade_remove_screen_options');
 function faithmade_from_email(){
 	return 'support@faithmade.net';
 }
-add_filter('wp_mail_from','mail_from');
+add_filter('wp_mail_from','faithmade_from_email');
 
 /**
  * Send emails from WordPress as Faithmade.
