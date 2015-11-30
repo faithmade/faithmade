@@ -119,7 +119,7 @@ add_filter('wp_mail_from','mail_from');
 function faithmade_from_name(){
 	return 'Faithmade';
 }
-add_filter('wp_mail_from_name','mail_from_name');
+add_filter('wp_mail_from_name','faithmade_from_name');
 
 /**
  * Removes CoSchedule Redirect on Activation on Site Creation
