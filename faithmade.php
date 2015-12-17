@@ -134,3 +134,12 @@ function custom_redirect_filter($redirect_to, $request, $user) {
     return site_url();
 }
 
+function faithmade_cache_control() {
+    if( ! class_exists('rtCamp\WP\Nginx\Helper') ) 
+        return;
+
+    global $rt_wp_nginx_purger;
+    add_action( 'save_post', array( &$rt_wp_nginx_purger, 'purge_them_all' ), 200, 1 );
+    add_action( 'wp_creating_autosave', array( &$rt_wp_nginx_purger, 'purge_them_all' ), 200, 1 );
+}
+add_action( 'init', 'faithmade_cache_control', 15 );
