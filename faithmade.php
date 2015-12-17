@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Faithmade Admin Theme
  * Description: The admin theme for Faithmade sub-sites.
- * Version: 0.1
+ * Version: 0.2
  * Author: Caleb Sylvest and Chris Wallace
  * Author URI: http://liftux.com
  * Text Domain: faithmade
