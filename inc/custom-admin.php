@@ -111,7 +111,7 @@ add_filter('screen_options_show_screen','faithmade_remove_screen_options');
 function faithmade_from_email(){
 	return 'support@faithmade.net';
 }
-add_filter('wp_mail_from','mail_from');
+add_filter('wp_mail_from','faithmade_from_email');
 
 /**
  * Send emails from WordPress as Faithmade.
@@ -119,7 +119,7 @@ add_filter('wp_mail_from','mail_from');
 function faithmade_from_name(){
 	return 'Faithmade';
 }
-add_filter('wp_mail_from_name','mail_from_name');
+add_filter('wp_mail_from_name','faithmade_from_name');
 
 /**
  * Removes CoSchedule Redirect on Activation on Site Creation
@@ -146,3 +146,67 @@ function faithmade_maybe_suppress_coschedule_redirect( $location, $status ) {
 if( is_admin() ) {
 	add_action( 'wp_redirect', 'faithmade_maybe_suppress_coschedule_redirect', 10, 2 );
 }
+
+/**
+ * Allows access to plugins page on admin to super admins only
+ */
+function faithmade_maybe_redirect_plugin_page( $location, $status = 200 ) {
+	// Exit early if user is a super admin or this doesn't have to with plugins.php
+	if( is_super_admin() || false === strpos( $location, 'plugins.php' ) ) {
+		return $location;
+	}
+	
+	if( false !== strpos( $location, 'plugins.php') ) {
+		return network_home_url( '/premium/?bid=100' );
+	}
+}
+if( is_admin() ) {
+	add_action('wp_redirect', 'faithmade_maybe_redirect_plugin_page' );
+}
+
+/**
+ * Changes the default admin color scheme to use the Faithmade Brand Color
+ *
+ * Currently affects Gravity Forms and Yoast
+ */
+function faithmade_set_admin_color_scheme() {
+	global $_wp_admin_css_colors;
+	$fresh = &$_wp_admin_css_colors["fresh"];
+	$icon_colors = &$fresh->icon_colors;
+	$icon_colors["focus"] = '#38b093';
+}
+add_action( 'admin_init', 'faithmade_set_admin_color_scheme' );
+
+/**
+ * Overrides Admin Icon for Coschedule by setting our own image for the default, hover and focus.
+ * @return [type] [description]
+ */
+function faithmade_override_coschedule_admin_icon() {
+	ob_start();
+	?>
+	<style>
+		#toplevel_page_tm_coschedule_calendar div.wp-menu-image img {
+			display: none;
+		}
+		#toplevel_page_tm_coschedule_calendar div.wp-menu-image:before {
+			content: '';
+			background-image: url(%1$s);
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			text-align: center;
+		}
+		#toplevel_page_tm_coschedule_calendar:hover div.wp-menu-image:before {
+			background-image: url(%2$s);
+		}
+		#toplevel_page_tm_coschedule_calendar.current div.wp-menu-image:before {
+			background-image: url(%3$s) !important;
+		}
+	</style>
+	<?php
+	echo sprintf( ob_get_clean(), 
+		faithmade_asset_url( '/assets/images/coschedule-gray.png' ), 
+		faithmade_asset_url( '/assets/images/coschedule-fm.png' ),
+		faithmade_asset_url( '/assets/images/coschedule-white.png' )
+		);
+}
+add_action( 'admin_head', 'faithmade_override_coschedule_admin_icon') ;

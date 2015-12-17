@@ -7,7 +7,6 @@
  * Author URI: http://liftux.com
  * Text Domain: faithmade
  */
-
 define( 'FAITHMADE_PLUGIN_URL', __FILE__ );
 
 /**
@@ -28,6 +27,7 @@ add_action( 'login_enqueue_scripts', 'faithmade_login_stylesheet', 10 );
 if( is_admin() ){
     require_once( 'cmb2/init.php' );
     require_once( 'inc/custom-admin.php' );
+    require_once( 'inc/string-branding.php' );
     //require_once( 'inc/domain-mapping.php' );
 }
 
@@ -42,114 +42,6 @@ function faithmade_adminbar_css() {
 }
 
 add_action( 'wp_enqueue_scripts', 'faithmade_adminbar_css' );
-
-function faithmade_replace_wordpress( $translated_text, $text, $domain ){
-
-    switch ( $translated_text ) {
-        case 'WordPress should correct invalidly nested XHTML automatically' :
-            $translated_text = __( 'Faithmade should correct invalidly nested XHTML automatically', 'faithmade' );
-
-        break;
-    }
-
-    return $translated_text;
-
-}
-
-add_filter( 'gettext', 'faithmade_replace_wordpress', 10, 3 );
-
-function faithmade_replace_wordpress_xhtml( $translated_text, $text, $domain ){
-
-    switch ( $translated_text ) {
-        case 'WordPress should correct invalidly nested XHTML automatically' :
-            $translated_text = __( 'Faithmade should correct invalidly nested XHTML automatically', 'faithmade' );
-
-        break;
-    }
-
-    return $translated_text;
-
-}
-
-add_filter( 'gettext', 'faithmade_replace_wordpress_xhtml', 10, 3 );
-
-function faithmade_replace_wordpress_comment_contains1( $translated_text, $text, $domain ){
-
-    switch ( $translated_text ) {
-
-        case 'When a comment contains any of these words in its content, name, URL, e-mail, or IP, it will be held in the <a href="edit-comments.php?comment_status=moderated">moderation queue</a>. One word or IP per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;.':
-            $translated_text = __( 'When a comment contains any of these words in its content, name, URL, e-mail, or IP, it will be held in the <a href="edit-comments.php?comment_status=moderated">moderation queue</a>. One word or IP per line. It will match inside words, so &#8220;made&#8221; will match &#8220;Faithmade&#8221;.' );
-
-        break;
-    }
-
-    return $translated_text;
-
-}
-
-add_filter( 'gettext', 'faithmade_replace_wordpress_comment_contains1', 10, 3 );
-
-function faithmade_replace_wordpress_comment_contains2( $translated_text, $text, $domain ){
-
-    switch ( $translated_text ) {
-
-        case 'When a comment contains any of these words in its content, name, URL, e-mail, or IP, it will be marked as spam. One word or IP per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;.';
-            $translated_text = __( 'When a comment contains any of these words in its content, name, URL, e-mail, or IP, it will be marked as spam. One word or IP per line. It will match inside words, so &#8220;made&#8221; will match &#8220;Faithmade&#8221;.' );
-
-        break;
-    }
-
-    return $translated_text;
-
-}
-
-add_filter( 'gettext', 'faithmade_replace_wordpress_comment_contains2', 10, 3 );
-
-function faithmade_replace_wordpress_permalink( $translated_text, $text, $domain ){
-
-    switch ( $translated_text ) {
-        case 'By default WordPress uses web <abbr title="Universal Resource Locator">URL</abbr>s which have question marks and lots of numbers in them; however, WordPress offers you the ability to create a custom URL structure for your permalinks and archives. This can improve the aesthetics, usability, and forward-compatibility of your links. A <a href="https://codex.wordpress.org/Using_Permalinks">number of tags are available</a>, and here are some examples to get you started.';
-            $translated_text = __( 'By default Faithmade uses web <abbr title="Universal Resource Locator">URL</abbr>s which have question marks and lots of numbers in them; however, Faithmade offers you the ability to create a custom URL structure for your permalinks and archives. This can improve the aesthetics, usability, and forward-compatibility of your links. A <a href="https://codex.wordpress.org/Using_Permalinks">number of tags are available</a>, and here are some examples to get you started.' );
-
-        break;
-    }
-
-    return $translated_text;
-
-}
-
-add_filter( 'gettext', 'faithmade_replace_wordpress_permalink', 10, 3 );
-
-function faithmade_replace_gf_text( $translated_text, $text, $domain ){
-
-    switch ( $translated_text ) {
-        case 'Select the forms you would like to export. When you click the download button below, Gravity Forms will create a JSON file for you to save to your computer. Once you\'ve saved the download file, you can use the Import tool to import the forms.';
-            $translated_text = __( 'Select the forms you would like to export. When you click the download button below, we will create a JSON file for you to save to your computer. Once you\'ve saved the download file, you can use the Import tool to import the forms.' );
-
-        break;
-    }
-
-    return $translated_text;
-
-}
-
-add_filter( 'gettext', 'faithmade_replace_gf_text', 10, 3 );
-
-function faithmade_replace_gf_text_again( $translated_text, $text, $domain ){
-
-    switch ( $translated_text ) {
-        case 'Select a form below to export entries. Once you have selected a form you may select the fields you would like to export and then define optional filters for field values and the date range. When you click the download button below, Gravity Forms will create a CSV file for you to save to your computer.';
-            $translated_text = __( 'Select a form below to export entries. Once you have selected a form you may select the fields you would like to export and then define optional filters for field values and the date range. When you click the download button below, we will create a CSV file for you to save to your computer.' );
-
-        break;
-    }
-
-    return $translated_text;
-
-}
-
-add_filter( 'gettext', 'faithmade_replace_gf_text_again', 10, 3 );
-
 
 function faithmade_remove_gf_menu_links() {
     //remove_submenu_page( 'gf_edit_forms', 'gf_settings' );
@@ -242,3 +134,12 @@ function custom_redirect_filter($redirect_to, $request, $user) {
     return site_url();
 }
 
+function faithmade_cache_control() {
+    if( ! class_exists('rtCamp\WP\Nginx\Helper') ) 
+        return;
+
+    global $rt_wp_nginx_purger;
+    add_action( 'save_post', array( &$rt_wp_nginx_purger, 'purge_them_all' ), 200, 1 );
+    add_action( 'wp_creating_autosave', array( &$rt_wp_nginx_purger, 'purge_them_all' ), 200, 1 );
+}
+add_action( 'init', 'faithmade_cache_control', 15 );
