@@ -1,0 +1,31 @@
+body {
+    background-color: #edfaf7 !important;
+    color: #313940 !important;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: hidden;
+    position: relative;
+}
+
+div.widecolumn {
+    margin-top: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 69.75em;
+
+}
+
+div.widecolumn h2 {
+    font-size: 3em;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 0.75em;
+}
+
+div.widecolumn span.h3 {
+    font-size: 1em;
+}
+.footer {
+    position: absolute;
+    bottom: 0px;
+}
