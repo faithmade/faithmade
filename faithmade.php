@@ -150,6 +150,6 @@ add_action( 'init', 'faithmade_cache_control', 15 );
  * @return void
  */
 function faithmade_enqueue_activate_styles() {
-    wp_enqueue_script( 'faithmade-wp-activate-style', dirname( __FILE__ ) . '/activate.css' );
+    wp_enqueue_script( 'faithmade-wp-activate-style', plugins_url( 'activate.css', __FILE__ );
 }
 add_action( 'activate_wp_head', 'faithmade_enqueue_activate_styles', 200 );
