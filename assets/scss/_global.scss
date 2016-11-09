@@ -19,6 +19,7 @@ html {
 }
 
 body {
+	background: $body-bg;
 	color: $body-font-color;
 }
 
@@ -52,4 +53,8 @@ h3.nav-tab-wrapper{
 
 #wp-auth-check-wrap #wp-auth-check{
 	background-color: $sidebar-bg;
+}
+
+.rock-layout-wrap ul li.active label>input:checked+img {
+	border-color: #36a88d;
 }

@@ -52,6 +52,20 @@
 	@extend .button-secondary;
 }
 
+.wrap .page-title-action {
+	color: #36a88d;
+
+	&:hover,
+	&:active,
+	&:focus,
+	&:disabled{
+		border-color: #36a88d;
+		background: #36a88d;
+		color: #fff;
+	}
+
+}
+
 // color some text and icons inside of buttons
 .gray-button span,
 .wp-core-ui .button span,
